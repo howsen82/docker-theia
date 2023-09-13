@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  theia:
+    container_name: theia
+    image: hoadx/theia
+    environment:
+      - CHANGE_OWNER=1
+      - PUID=1026
+      - PGID=100
+    volumes:
+      - /data/theia/workspace:/workspace
+    ports:
+      - 3000:3000
+    restart: unless-stopped
